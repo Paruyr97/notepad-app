@@ -1,5 +1,5 @@
 import { Injectable, OnInit } from "@angular/core";
-import { Note } from "../interfaces/note";
+import { Note, Notes } from "../interfaces/note";
 import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
 
@@ -7,27 +7,31 @@ import { Observable } from "rxjs";
     providedIn: 'root'
 })
 export class NoteService {
-    public notes: Note[] = [];
-    BASE_URL = 'http://localhost:5000/';
+    public notes: Notes = {} as Notes;
+    private BASE_URL = 'http://localhost:3000/';
       
     constructor(private http: HttpClient) {
       
     }
-    getNotes(): Observable<Note[]> {
-      return this.http.get<Note[]>(this.BASE_URL);
+
+    public getNotes(): Observable<Notes> {
+      return this.http.get<Notes>(`${this.BASE_URL}note`);
     }
   
-    createNote(note: Note): any {
+    public createNote(note: Note): any {
       console.log(note, 'created note');
       
-      this.http.post(this.BASE_URL, note);
+      this.http.post(`${this.BASE_URL}note`, note).subscribe(data => {
+        console.log(data, 'created data');
+        
+      });
     }
   
-    updateNote(updatedNote: Note): void {
-      this.http.put(this.BASE_URL, updatedNote);
+    public updateNote(updatedNote: Note): Observable<Note> {
+      return this.http.put<Note>(`${this.BASE_URL}note`, updatedNote);
     }
   
-    deleteNote(id: number): void {
-      this.http.delete(`${this.BASE_URL}/${id}`);
+    public deleteNote(id: number): Observable<Note> {
+      return this.http.delete<Note>(`${this.BASE_URL}note/${id}`);
     }
 }

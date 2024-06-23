@@ -1,0 +1,23 @@
+.notes-container {
+    display: flex;
+    border-radius: 16px;
+    margin-bottom: 10px;
+    background-color: #f0f5f1;
+    padding: 10px;
+    justify-content: space-between;
+}
+
+.note {
+    
+}
+
+.btns-holder {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.icon {
+    margin: 4px;
+    cursor: pointer;
+}

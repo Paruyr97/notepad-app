@@ -1,1 +1,20 @@
-<h1>note component</h1>
+<div class="notes-container" *ngFor="let note of noteService.notes | objectValues">
+        <div class="note">
+            <h3>{{ note.title }}</h3>
+            <p>{{ note.description }}</p>
+        </div>
+        <div class="btns-holder">
+            <img class="icon"  
+                src="../../../assets/icons/delete.png"
+                width="20"
+                height="20"
+                (click)="deleteNote(note.id)"
+            />
+            <img class="icon" 
+                src="../../../assets/icons/pencil.png"
+                width="20"
+                height="20"
+                (click)="deleteNote(note.id)"
+            />
+        </div>
+</div>
