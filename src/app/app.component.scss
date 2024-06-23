@@ -1,0 +1,6 @@
+.container {
+    display: flex;
+    .create-note, .notes, .chart {
+        flex: 1;
+    }
+}
