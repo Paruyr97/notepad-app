@@ -1,7 +1,7 @@
 <div class="notes-container" *ngFor="let note of noteService.notes | objectValues">
         <div class="note">
             <h3>{{ note.title }}</h3>
-            <p>{{ note.description }}</p>
+            <p class="desc">{{ note.description }}</p>
         </div>
         <div class="btns-holder">
             <img class="icon"  

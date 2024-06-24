@@ -18,13 +18,8 @@ export class NoteService {
       return this.http.get<Notes>(`${this.BASE_URL}note`);
     }
   
-    public createNote(note: Note): any {
-      console.log(note, 'created note');
-      
-      this.http.post(`${this.BASE_URL}note`, note).subscribe(data => {
-        console.log(data, 'created data');
-        
-      });
+    public createNote(note: Omit<Note, 'id'>): Observable<Note> {
+      return this.http.post<Note>(`${this.BASE_URL}note`, note);
     }
   
     public updateNote(updatedNote: Note): Observable<Note> {

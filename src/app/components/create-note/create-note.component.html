@@ -1,0 +1,49 @@
+<div class="form-wrapper">
+    <h3>Create note</h3>
+    <form
+        [formGroup]="noteForm"
+        (ngSubmit)="createNote()"
+    >
+        <div class="form-field-wrapper">
+            <label class="field-label" 
+                for="noteTitle"
+            >
+                Note Title
+            </label>
+            <input id="noteTitle"
+                class="note-title"
+                placeholder="Title"
+                formControlName="title"
+            />
+            <div class="error-msg" *ngIf="title?.invalid && title?.touched">
+                <span *ngIf="title?.errors?.['required']">Title is required</span>
+                <span *ngIf="title?.errors?.['maxlength']">
+                    Title cannot be more than 255 characters
+                </span>
+            </div>
+        </div>
+        <div class="form-field-wrapper">
+            <label for="noteDesc"
+                class="field-label" 
+            >
+                Note
+            </label>
+            <textarea id="noteDesc"
+                class="note-desc"
+                placeholder="Description"
+                formControlName="description"
+            ></textarea>
+            <div class="error-msg" *ngIf="description?.invalid && description?.touched">
+                <span *ngIf="description?.errors?.['required']">
+                    Description is required
+                </span>
+            </div>
+        </div>
+        <button class="create-btn"
+            type="submit"
+            [disabled]="noteForm.invalid"
+        >
+            Create Note
+        </button>
+    </form>
+</div>

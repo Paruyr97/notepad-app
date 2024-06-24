@@ -13,11 +13,14 @@
 
 .btns-holder {
     display: flex;
-    flex-direction: column;
     padding: 10px;
 }
 
 .icon {
     margin: 4px;
     cursor: pointer;
+}
+
+.desc {
+    color: var(--text-color);
 }
