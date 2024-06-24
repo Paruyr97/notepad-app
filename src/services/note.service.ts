@@ -22,8 +22,8 @@ export class NoteService {
       return this.http.post<Note>(`${this.BASE_URL}note`, note);
     }
   
-    public updateNote(updatedNote: Note): Observable<Note> {
-      return this.http.put<Note>(`${this.BASE_URL}note`, updatedNote);
+    public updateNote(updatedNote: Note, id: number): Observable<Note> {
+      return this.http.put<Note>(`${this.BASE_URL}note/${id}`, updatedNote);
     }
   
     public deleteNote(id: number): Observable<Note> {

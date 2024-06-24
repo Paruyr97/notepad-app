@@ -8,13 +8,15 @@ import { NotesComponentComponent } from './components/notes-component/notes-comp
 import { ObjectValuesPipe } from './pipes/object-values.pipe';
 import { CreateNoteComponent } from './components/create-note/create-note.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { EditNoteComponent } from './components/edit-note/edit-note.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NotesComponentComponent,
     ObjectValuesPipe,
-    CreateNoteComponent
+    CreateNoteComponent,
+    EditNoteComponent
   ],
   imports: [
     BrowserModule,
