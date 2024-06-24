@@ -6,7 +6,7 @@
     margin: 10px;
     .create-note, .notes, .chart {
         min-width: 280px !important;
-        width: calc((100vw - 32px) / 3)
+        width: calc((100vw - 32px - 20px) / 3)
     }
 }
 

@@ -44,6 +44,14 @@ export class EditNoteComponent implements OnInit {
   public editNote() {
     if (!this.canEdit) { return; }
 
+    if (
+      this.note.title === this.title.value 
+      && this.note.description === this.description.value
+    ) {
+      this.submitEditEmitter.emit(true);
+      return;
+    }
+
     this.noteService.updateNote({
       title: this.title.value,
       description: this.description.value,

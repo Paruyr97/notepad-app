@@ -9,6 +9,8 @@ import { ObjectValuesPipe } from './pipes/object-values.pipe';
 import { CreateNoteComponent } from './components/create-note/create-note.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { EditNoteComponent } from './components/edit-note/edit-note.component';
+import { ChartComponent } from './components/chart/chart.component';
+import { ChartModule } from 'angular-highcharts';
 
 @NgModule({
   declarations: [
@@ -16,13 +18,15 @@ import { EditNoteComponent } from './components/edit-note/edit-note.component';
     NotesComponentComponent,
     ObjectValuesPipe,
     CreateNoteComponent,
-    EditNoteComponent
+    EditNoteComponent,
+    ChartComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ChartModule
   ],
   providers: [],
   bootstrap: [AppComponent]
