@@ -4,11 +4,14 @@
     margin-bottom: 10px;
     background-color: #f0f5f1;
     padding: 10px;
-    justify-content: space-between;
+    flex-direction: column;
 }
 
 .note {
-    
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 30px;
 }
 
 .btns-holder {
@@ -23,4 +26,5 @@
 
 .desc {
     color: var(--text-color);
+    word-break: break-all;
 }

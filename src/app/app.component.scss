@@ -3,8 +3,8 @@
     flex-wrap: wrap;
     gap: 16px;
     justify-content: center;
+    margin: 10px;
     .create-note, .notes, .chart {
-        // flex: 1;
         min-width: 280px !important;
         width: calc((100vw - 32px) / 3)
     }

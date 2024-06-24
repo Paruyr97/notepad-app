@@ -1,20 +1,20 @@
 <div class="notes-container" *ngFor="let note of noteService.notes | objectValues">
         <div class="note">
             <h3>{{ note.title }}</h3>
-            <p class="desc">{{ note.description }}</p>
+            <div class="btns-holder">
+                <img class="icon"  
+                    src="../../../assets/icons/delete.png"
+                    width="16"
+                    height="16"
+                    (click)="deleteNote(note.id)"
+                />
+                <img class="icon" 
+                    src="../../../assets/icons/pencil.png"
+                    width="16"
+                    height="16"
+                    (click)="deleteNote(note.id)"
+                />
+            </div>
         </div>
-        <div class="btns-holder">
-            <img class="icon"  
-                src="../../../assets/icons/delete.png"
-                width="16"
-                height="16"
-                (click)="deleteNote(note.id)"
-            />
-            <img class="icon" 
-                src="../../../assets/icons/pencil.png"
-                width="16"
-                height="16"
-                (click)="deleteNote(note.id)"
-            />
-        </div>
+        <p class="desc">{{ note.description }}</p>
 </div>
