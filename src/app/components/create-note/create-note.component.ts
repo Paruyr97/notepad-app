@@ -29,15 +29,11 @@ export class CreateNoteComponent {
   }
 
   public createNote() {
-    console.log('cccccccccccccccccccccccccccc');
-    
     this.noteService.createNote({
       title: this.title.value,
       description: this.description.value
     })
     .subscribe(data => {
-      console.log(data, 'posted data');
-      
       if (!data) { return; }
 
       this.noteService.notes = {

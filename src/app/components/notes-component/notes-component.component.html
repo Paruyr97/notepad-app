@@ -1,4 +1,5 @@
-<div class="notes-container" *ngFor="let note of noteService.notes | objectValues">
+<ng-container  *ngFor="let note of noteService.notes | objectValues">
+    <div class="notes-container">
         <div class="note">
             <h3>{{ note.title }}</h3>
             <div class="btns-holder">
@@ -12,9 +13,13 @@
                     src="../../../assets/icons/pencil.png"
                     width="16"
                     height="16"
-                    (click)="deleteNote(note.id)"
+                    (click)="editingNoteId = note.id"
                 />
             </div>
         </div>
         <p class="desc">{{ note.description }}</p>
-</div>
+    </div>
+    <div *ngIf="editingNoteId === note.id" class="edit-note">
+        <app-edit-note [note]="note" (submitEditEmitter)="editingNoteId = -1"></app-edit-note>
+    </div>
+</ng-container>

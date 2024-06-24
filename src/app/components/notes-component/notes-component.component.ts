@@ -8,6 +8,7 @@ import { Note } from '../../../interfaces/note';
   styleUrl: './notes-component.component.scss'
 })
 export class NotesComponentComponent implements OnInit {
+  public editingNoteId: number = -1;
 
   constructor(public noteService: NoteService) {}
 
@@ -16,9 +17,7 @@ export class NotesComponentComponent implements OnInit {
   }
 
   private getNotes(): void {
-    this.noteService.getNotes().subscribe(data => {
-      console.log(data, data);
-      
+    this.noteService.getNotes().subscribe(data => {      
       if (!data) { return; }
 
       this.noteService.notes = data;
@@ -33,9 +32,5 @@ export class NotesComponentComponent implements OnInit {
         delete this.noteService.notes[_id];
         this.noteService.notes = structuredClone(this.noteService.notes);
       });
-  }
-
-  public updateNote(note: Note) {
-    this.noteService.updateNote(note);
   }
 }
