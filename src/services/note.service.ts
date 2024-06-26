@@ -1,7 +1,7 @@
 import { Injectable, OnInit } from "@angular/core";
 import { Note, Notes } from "../interfaces/note";
 import { HttpClient } from "@angular/common/http";
-import { Observable } from "rxjs";
+import { BehaviorSubject, Observable, Subject } from "rxjs";
 
 @Injectable({
     providedIn: 'root'
@@ -9,6 +9,7 @@ import { Observable } from "rxjs";
 export class NoteService {
     public notes: Notes = {} as Notes;
     private BASE_URL = 'http://localhost:3000/';
+    public noteCreationTimes$: BehaviorSubject<boolean> = new BehaviorSubject(false);
       
     constructor(private http: HttpClient) {
       

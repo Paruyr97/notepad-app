@@ -1,4 +1,4 @@
-<ng-container  *ngFor="let note of noteService.notes | objectValues">
+<ng-container  *ngFor="let note of noteService.notes | objectValues | filterNotes: searchQuery">
     <div class="notes-container">
         <div class="note">
             <h3>{{ note.title }}</h3>

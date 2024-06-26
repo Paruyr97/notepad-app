@@ -1,10 +1,12 @@
 
+<input type="text" class="search" placeholder="search notes" [(ngModel)]="searchQuery">
+
 <div class="container">
   <div class="create-note">
     <app-create-note></app-create-note>
   </div>
   <div class="notes">
-    <app-notes-component></app-notes-component>
+    <app-notes-component [searchQuery]="searchQuery"></app-notes-component>
   </div>
   <div class="chart">
     <app-chart></app-chart>

@@ -7,10 +7,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { NotesComponentComponent } from './components/notes-component/notes-component.component';
 import { ObjectValuesPipe } from './pipes/object-values.pipe';
 import { CreateNoteComponent } from './components/create-note/create-note.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EditNoteComponent } from './components/edit-note/edit-note.component';
 import { ChartComponent } from './components/chart/chart.component';
 import { ChartModule } from 'angular-highcharts';
+import { FilterNotesPipe } from './pipes/filter-notes.pipe';
 
 @NgModule({
   declarations: [
@@ -19,14 +20,16 @@ import { ChartModule } from 'angular-highcharts';
     ObjectValuesPipe,
     CreateNoteComponent,
     EditNoteComponent,
-    ChartComponent
+    ChartComponent,
+    FilterNotesPipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    ChartModule
+    ChartModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

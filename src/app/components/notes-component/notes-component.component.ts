@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { NoteService } from '../../../services/note.service';
 import { Note } from '../../../interfaces/note';
 
@@ -8,6 +8,7 @@ import { Note } from '../../../interfaces/note';
   styleUrl: './notes-component.component.scss'
 })
 export class NotesComponentComponent implements OnInit {
+  @Input() searchQuery: string = '';
   public editingNoteId: number = -1;
 
   constructor(public noteService: NoteService) {}
@@ -21,6 +22,7 @@ export class NotesComponentComponent implements OnInit {
       if (!data) { return; }
 
       this.noteService.notes = data;
+      this.noteService.noteCreationTimes$.next(true);
     });
   }
 
@@ -31,6 +33,7 @@ export class NotesComponentComponent implements OnInit {
         
         delete this.noteService.notes[_id];
         this.noteService.notes = structuredClone(this.noteService.notes);
+        this.noteService.noteCreationTimes$.next(true);
       });
   }
 }

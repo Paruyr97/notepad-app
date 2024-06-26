@@ -55,7 +55,8 @@ export class EditNoteComponent implements OnInit {
     this.noteService.updateNote({
       title: this.title.value,
       description: this.description.value,
-      id: this.note.id
+      id: this.note.id,
+      createdAt: this.note.createdAt
     }, this.note.id)
     .subscribe(data => {
       if (!data) { return; }
